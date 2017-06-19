@@ -42,3 +42,11 @@ Url           |Verb          | Description
 /users/{id}/follows |PUT     | follow user
 /users/{id}/follows/tweets |GET     | return list of tweets for user follow
 
+
+Example user JSON
+```javascript
+{
+"id": 2,
+"name": "bbbb"
+}
+```

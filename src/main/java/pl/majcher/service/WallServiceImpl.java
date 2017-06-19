@@ -5,6 +5,7 @@ import pl.majcher.model.Tweet;
 import pl.majcher.model.User;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -25,6 +26,7 @@ public class WallServiceImpl implements WallService {
     @Override
     public List<Tweet> findByUser(User user) {
         return tweetsRepository.stream()
+                .sorted(Comparator.reverseOrder())
                 .filter(tweet -> tweet.getAuthor() == user)
                 .collect(Collectors.toList());
     }

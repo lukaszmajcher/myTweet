@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-public class Tweet  implements Serializable {
+public class Tweet  implements Serializable, Comparable<Tweet> {
 
     private int id;
 
@@ -59,5 +59,10 @@ public class Tweet  implements Serializable {
     @Override
     public int hashCode() {
         return id;
+    }
+
+    @Override
+    public int compareTo(Tweet o) {
+        return Integer.compare(this.id, o.getId());
     }
 }

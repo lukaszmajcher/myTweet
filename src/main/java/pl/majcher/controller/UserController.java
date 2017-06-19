@@ -54,7 +54,7 @@ public class UserController {
         return user.map(user1 -> new ResponseEntity<>(followService.getFollowee(user1), HttpStatus.MULTI_STATUS)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @RequestMapping(value = "/{id}/follows/{followID}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{id}/follows/{followID}", method = RequestMethod.PUT)
     public ResponseEntity<List<User>> follow(@PathVariable int id, @PathVariable int followID){
 
         Optional<User> follower = userService.findById(id);

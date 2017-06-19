@@ -18,16 +18,27 @@ The application is accessible at the following URL:
 The REST API is composed of 2 services:
 
 ##### Wall Service #####
-
 Url           |Verb          | Description
 --------------|------------- | -------------
-/             |GET          | return list of all tweets
-/user| PUT| Used to save the user max calories per day
-/user|POST| creates a new user
+/             |GET          | return list of tweets
+/             |POST         | add new tweet and user
+
+Example tweet JSON
+
+```javascript
+{
+"message": "nndddnnn",
+"author": "bbb"
+}
+```
+
 ##### User Service #####
-
 Url           |Verb          | Description
 --------------|------------- | -------------
-/user         |GET          | retrieves info for the currently logged-in user (number of calories of today, etc.) 
-/user| PUT| Used to save the user max calories per day
-/user|POST| creates a new user
+/users         |GET          | return list of users
+/users/{id}    |GET          | return user detail
+/usert/{id}/tweets|GET       | return list of tweets for user
+/users/{id}/follows |GET     | return list of user follows
+/users/{id}/follows |PUT     | follow user
+/users/{id}/follows/tweets |GET     | return list of tweets for user follow
+

@@ -30,6 +30,14 @@ public class WallServiceImpl implements WallService {
                 .filter(tweet -> tweet.getAuthor() == user)
                 .collect(Collectors.toList());
     }
+    @Override
+    public List<Tweet> findByUsers(List<User> users){
+        List<Tweet> usersTweets = new ArrayList<>();
+        users.forEach(u -> usersTweets.addAll(findByUser(u)));
+        return usersTweets.stream()
+                .sorted(Comparator.comparingInt(Tweet::getId).reversed())
+                .collect(Collectors.toList());
+    }
 
     @Override
     public List<Tweet> getAll() {

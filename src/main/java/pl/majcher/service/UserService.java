@@ -9,5 +9,6 @@ public interface UserService {
 
     User findOrCreate(String name);
     Optional<User> findById(int in);
+    Optional<User> find(User user);
     List<User> getAll();
 }

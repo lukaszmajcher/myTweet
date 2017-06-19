@@ -27,6 +27,13 @@ public class UserServiceImpl implements UserService {
                 .findAny();
     }
 
+    @Override
+    public Optional<User> find(User user) {
+        return usersRepository.stream()
+                .filter(u -> u == user)
+                .findAny();
+    }
+
     private Optional<User> findByName(String name){
         return usersRepository.stream()
                 .filter(user -> user.getName().equals(name))

@@ -9,5 +9,6 @@ public interface WallService {
 
     Tweet add(Tweet tweet);
     List<Tweet> findByUser(User user);
+    List<Tweet> findByUsers(List<User> users);
     List<Tweet> getAll();
 }
